@@ -1,35 +1,45 @@
 ---
+import '../styles/milligram.css'
+import '../styles/normalize.css'
+
 import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.svelte";
+import Beginning from "../components/Beginning.svelte"
+import Background from "../components/Background.svelte"
 import AboutMe from "../components/AboutMe.svelte";
+import Skills from "../components/Skills.svelte"
+import Zenn from "../components/Zenn.svelte"
+import Profile from "../components/Profile.svelte"
+import Closing from "../components/Closing.svelte"
+import Footer from "../components/Footer.svelte"
+
 ---
 
 <Layout title="Mihara's Portfolio.">
 	<main>
-		<!-- <Title />
-		<Beginning />
-		<Background /> -->
-		<!-- <AboutMe /> -->
-		<!-- <Skills />
-		<Zenn />
+		<Title />
+		<Beginning client:load/>
+		<Background />
+		<AboutMe />
+		<Skills client:only="svelte"/>
+		<Zenn client:load/>
 		<Profile />
-		<Closing />
-		<Footer /> -->
+		<Closing client:load/>
+		<Footer />
 	</main>
 </Layout>
 
 <style>
-	main {
-		color: #ffffff;
-	}
+	    .wrapper {
+        position: relative;
+        top: 10%;
+        left: 0.5em;
+        width: 90vw;
+    }
+    @media (min-width: 768px) {
+        .wrapper {
+            top: 40%;
+        }
+    }
 
-	@keyframes -global-from-left {
-		0% {
-			transform: translateY(-20px);
-			opacity: 0;
-		}
-		100% {
-			transform: translateY(0);
-			opacity: 1;
-		}
-	}
 </style>

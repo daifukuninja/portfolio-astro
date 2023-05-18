@@ -11,16 +11,54 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/contribe.svg" />
-    <link rel="stylesheet" href="../styles/milligram.css" type="text/css" media="screen">    
-    <link rel="stylesheet" href="../styles/normalize.css" type="text/css" media="screen">
+	<!-- <link rel="stylesheet" href="../styles/app.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=M+PLUS+Rounded+1c:wght@400&family=Noto+Sans+JP:wght@100;300;400&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+	<meta name="generator" content={Astro.generator} />
+	<title>{title}</title>
   </head>
   <body class="theme-dark"><!--apply unovis dark theme-->
 	<slot />
     <!-- <script type="module" src="/src/main.ts"></script> -->
   </body>
 </html>
+
+<style is:global>
+	:root {
+		color: rgba(255, 255, 255, 1);
+		background-color: #110011;
+
+		font-synthesis: none;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	body {
+		margin: 0;
+		display: flex;
+		width: 100vw;
+		min-width: 320px;
+		min-height: 100vh;
+	}
+
+	main {
+		width: 100vw;
+		color: #ffffff;
+	}
+
+	@keyframes -global-from-left {
+		0% {
+			transform: translateY(-20px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+</style>

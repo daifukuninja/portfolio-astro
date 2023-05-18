@@ -34,7 +34,9 @@
 				"pmneo.tsimporter",
 				"kakumei.ts-debug",
 				"ryokat3.vscode-qiita-markdown-preview",
-				"astro-build.astro-vscode"
+				"astro-build.astro-vscode",
+				"phu1237.vs-browser",
+				"christian-kohler.path-intellisense"
 			]
 		}
 	}

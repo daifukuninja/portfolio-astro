@@ -164,7 +164,7 @@
         opacity: 0.9;
     }
     #timeline {
-        width: 95vw;
+        width: 95%;
         padding-bottom: 2em;
     }
     .v-coffee {

@@ -9,13 +9,13 @@
         position: fixed;
         top: 0%;
         height: 100vh;
-        width: 100vw;
+        width: 100%;
         overflow: hidden;
     }
     #ninja {
         position: relative;
         top: -100%;
-        width: 100vw;
+        width: 100%;
         height: 100%;
         z-index: 2147483647;
         overflow: hidden;

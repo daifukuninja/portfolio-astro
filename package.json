@@ -10,10 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/image": "^0.16.9",
     "@astrojs/svelte": "^2.1.1",
     "@unovis/svelte": "^1.1.1",
     "@unovis/ts": "^1.1.1",
-    "astro": "^2.4.5",
+    "astro": "^2.5.0",
     "axios": "^1.4.0",
     "chart.js": "^4.3.0",
     "svelte": "^3.59.1",

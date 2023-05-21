@@ -107,10 +107,6 @@
     <p>{@html message}</p>
     <p>{@html messageOther} >> <a href="https://stackshare.io/daifukuninja/shared-stack" target="_blank">https://stackshare.io/daifukuninja/shared-stack</a></p>
 </div>
-<div class="blankbox"></div>
-<div class="v-coffee" />
-<div class="blankbox"></div>
-
 
 <style>
     p {
@@ -131,7 +127,7 @@
         padding-bottom: 10vh;
     }
     .blankbox {
-        height: 50vh;
+        /* height: 50vh; */
         background-color: #110011;
         opacity: 0.9;
     }
@@ -167,22 +163,9 @@
         width: 95%;
         padding-bottom: 2em;
     }
-    .v-coffee {
-        width: auto;
-        height: 80vh;
-        background-color: #110011;
-        background-image: url(/coffee-cup-and-coffee-kettle.jpeg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
     @media (min-width: 768px) {
         #timeline {
             width: 80vw;
-        }
-        .v-coffee {
-            background-size: 80%;
-            background-image: url(/copper-kettle-pour-over-coffee.jpeg);
         }
     }
 </style>

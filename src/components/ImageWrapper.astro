@@ -1,0 +1,40 @@
+---
+import { Picture } from "@astrojs/image/components";
+import coffeeImage from "../images/coffee-cup-and-coffee-kettle.jpeg";
+import kettleImage from "../images/copper-kettle-pour-over-coffee.jpeg";
+
+const coffeeAlt = "coffee break.";
+const kettleAlt = "pouring coffee";
+---
+
+<div class="v-coffee">
+    <Picture src={coffeeImage} alt={coffeeAlt} widths={[400, 800, 1200]} sizes={"100vw"} aspectRatio={925/1388} format={"webp"} style={"height: 100%;"} />
+</div>
+<div class="v-kettle">
+    <Picture src={kettleImage} alt={kettleAlt} widths={[400, 800, 1200]} sizes={"70vw"} aspectRatio={925/617} format={"webp"} style={"height: 100%;"} />
+</div>
+
+<style>
+    .v-coffee {
+        width: auto;
+        height: 600px;
+        background-color: #110011;
+        text-align: center;
+    }
+    .v-kettle {
+        display: none;
+    }
+    @media (min-width: 768px) {
+        .v-coffee {
+            display: none;
+            /* background-image: url(/copper-kettle-pour-over-coffee.jpeg); */
+        }
+        .v-kettle {
+            display: block;
+            width: auto;
+            height: 800px;
+            background-color: #110011;
+            text-align: center;
+        }
+    }
+</style>

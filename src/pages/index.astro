@@ -1,48 +1,50 @@
 ---
-
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.svelte";
-import BlankBox from "../components/BlankBox.svelte"
-import Beginning from "../components/Beginning.svelte"
-import Background from "../components/Background.svelte"
+import BlankBox from "../components/BlankBox.svelte";
+import Beginning from "../components/Beginning.svelte";
+import Background from "../components/Background.svelte";
 import AboutMe from "../components/AboutMe.svelte";
-import Skills from "../components/Skills.svelte"
-import ImageWrapper from "../components/ImageWrapper.astro"
-import Zenn from "../components/Zenn.svelte"
-import Profile from "../components/Profile.svelte"
-import Closing from "../components/Closing.svelte"
-import Footer from "../components/Footer.svelte"
-
+import Skills from "../components/Skills.svelte";
+import ImageWrapper from "../components/ImageWrapper.astro";
+import Zenn from "../components/Zenn.svelte";
+import Profile from "../components/Profile.svelte";
+import Closing from "../components/Closing.svelte";
+import Footer from "../components/Footer.svelte";
 ---
 
 <Layout title="Mihara's Portfolio.">
 	<main>
 		<Title />
-		<Beginning client:load/>
+		<Beginning client:load />
 		<Background />
-		<AboutMe client:load/>
-		<Skills client:only="svelte"/>
+		<AboutMe client:load />
+		<Skills client:only="svelte" />
 		<BlankBox height={"50vh"} />
 		<ImageWrapper />
 		<BlankBox height={"50vh"} />
-		<Zenn client:load/>
-		<Profile client:load/>
-		<Closing client:load/>
+		<Zenn client:load />
+		<Profile client:load />
+		<Closing client:load />
 		<Footer />
 	</main>
 </Layout>
 
 <style>
-	    .wrapper {
-        position: relative;
-        top: 10%;
-        left: 0.5em;
-        width: 90vw;
-    }
-    @media (min-width: 768px) {
-        .wrapper {
-            top: 40%;
-        }
-    }
+	main {
+		width: 100%;
+		color: #ffffff;
+	}
 
+	.wrapper {
+		position: relative;
+		top: 10%;
+		left: 0.5em;
+		width: 90vw;
+	}
+	@media (min-width: 768px) {
+		.wrapper {
+			top: 40%;
+		}
+	}
 </style>

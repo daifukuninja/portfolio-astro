@@ -2,17 +2,13 @@
     import Introduction from "./Introduction.svelte";
     import BottomArrow from "./BottomArrow.svelte";
     import SelectLang from "./SelectLang.svelte";
-    import { lang } from "../scripts/lang";
     const message_jp =
-        `ここは日本在住のエンジニア、 \nMIHARA Keishi のポートフォリオサイトです。`.replace(
-            /\n/g,
-            "<br />"
-        );
-    const message_en = `This is Keishi MIHARA's portfolio site.
-    ( web + backend + desktop application engineer.  ...well....I'll do whatever I can. )`.replace(
-        /\n/g,
-        "<br />"
-    );
+        `ここは日本在住のエンジニア、 \nMIHARA Keishi のポートフォリオサイトです。`
+        .replace(/\n/g, "<br />");
+    const message_en = 
+        `This is Keishi MIHARA's portfolio site.
+        ( web + backend + desktop application engineer.  ...well....I'll do whatever I can. )`
+        .replace(/\n/g, "<br />");
 </script>
 
 <div class="beginning">

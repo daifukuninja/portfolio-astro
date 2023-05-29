@@ -4,8 +4,8 @@
 
   let langKey: langType;
 
-  langStore.subscribe((value) => {
-    langKey = value;
+  langStore.subscribe((l) => {
+    langKey = l;
   });
 
   const switchLanguage = (l: langType) => {

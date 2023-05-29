@@ -5,9 +5,9 @@
 
     let message = introduction.jp.replace(/\n/g, "<br />");
 
-    langStore.subscribe((value: langType) => {
+    langStore.subscribe((l: langType) => {
         let m: string;
-        m = introduction[value];
+        m = introduction[l];
         message = m.replace(/\n/g, "<br />");
     });
 </script>

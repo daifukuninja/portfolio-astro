@@ -7,15 +7,6 @@
 
     let promise = getZennFeeds<Root>("daifukuninja");
     const articleCount = 5;
-
-    let isJa = true;
-    langStore.subscribe((value: langType) => {
-        if (value == ("jp" as langType)) {
-            isJa = true;
-        } else {
-            isJa = false;
-        }
-    });
 </script>
 
 <div id="zenn-container">

@@ -1,14 +1,16 @@
 <script lang="ts">
-    import { lang } from "../scripts/lang";
+    import { langStore } from "../scripts/lang";
+    import type { langType } from "../scripts/lang";
     import { getZennFeeds } from "../scripts/getZennFeeds";
     import type { Root } from "../scripts/getZennFeeds";
+    import ZennCaption from "./ZennCaption.svelte";
 
     let promise = getZennFeeds<Root>("daifukuninja");
     const articleCount = 5;
 
     let isJa = true;
-    lang.subscribe((value) => {
-        if (value == 'ja') {
+    langStore.subscribe((value: langType) => {
+        if (value == ("jp" as langType)) {
             isJa = true;
         } else {
             isJa = false;
@@ -18,24 +20,7 @@
 
 <div id="zenn-container">
     <h2>Articles</h2>
-    {#if isJa}
-    <div id="articles-caption">
-        <a href="https://zenn.dev/" target="_blank">Zenn</a> で技術記事を書いています。(<a
-            href="https://zenn.dev/daifukuninja" target="_blank">@daifukuninja</a
-        >)<br>
-        初めて触った技術のインプレッション, 日々の仕事の中で得た小さな気付きなどを中心に、なるべくこまめにアウトプットできるよう心がけています。<br>
-        ここでは最新の {articleCount} 件の記事を紹介します。
-    </div>
-    {:else}
-    <div id="articles-caption">
-        I write technical articles on <a href="https://zenn.dev/" target="_blank">Zenn</a>.(<a
-            href="https://zenn.dev/daifukuninja" target="_blank">@daifukuninja</a
-        >)<br>
-        I try to output as often as possible, focusing on impressions of technologies I have touched for the first time, and small insights I have gained in my daily work.<br>
-        Here are the {articleCount} most recent articles.<br>
-        (very truely sorry, Japanese only.)
-    </div>
-    {/if}
+    <ZennCaption />
     {#await promise}
         <p>loading...</p>
     {:then params}
@@ -46,10 +31,7 @@
                         <img src={params.items[i].enclosure.link} alt="thumbnail" />
                     </a>
                     <p class="zenn-description">
-                        {@html params.items[i].description.replace(
-                            /\n/g,
-                            "<br />"
-                        )}
+                        {@html params.items[i].description.replace(/\n/g, "<br />")}
                     </p>
                     <p class="zenn-pubdate">posted at {params.items[i].pubDate}</p>
                 </div>
@@ -85,10 +67,6 @@
         flex-wrap: wrap;
         width: 100%;
     }
-    #articles-caption {
-        font-family: "Noto Sans JP";
-        padding-bottom: 1em;
-    }
     .article {
         width: 360px;
     }
@@ -101,7 +79,7 @@
         margin-bottom: 0;
     }
     p {
-        font-family: 'M PLUS Rounded 1c';
+        font-family: "M PLUS Rounded 1c";
     }
     a {
         text-decoration: underline;

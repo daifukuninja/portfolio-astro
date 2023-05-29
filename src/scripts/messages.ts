@@ -1,4 +1,11 @@
-export const introduction = {
+// export type Lang = "jp" | "en" | "es"
+import type { langType } from "./lang"
+
+export type Message = {
+    [key in langType]: string
+}
+
+export const introduction: Message = {
     jp: `私の自己紹介, 製作物や執筆記事, 業務で身に付けたスキルをご案内させていただきます。
     なにか１つでもご参考になるものをお持ち帰りいただければ幸いです。`,
     en: `On this site, I will introduce myself, my productions, 
@@ -7,7 +14,7 @@ export const introduction = {
     los artículos que he escrito y las habilidades que he adquirido en mi trabajo.`,
 }
 
-export const aboutMe = {
+export const aboutMe: Message = {
     jp: `MIHARA Keishi は日本のフリーランスWebエンジニア, バックエンドプログラマ, デスクトップアプリケーションエンジニア, 
     糖質制限者, 会社員, 団塊ジュニア, テックライター, スノーボーダー, 運転手, 
     元 Lotus Notes/Domino アプリケーションデータベースエンジニアでExcelマクロ書き。
@@ -47,7 +54,7 @@ export const aboutMe = {
     Es miembro de Contribe Co., Ltd.`,
 }
 
-export const skills = {
+export const skills: Message = {
     jp: `Python, C#, VB系の言語を中心に、デスクトップアプリケーション, エンドユーザ業務効率化の支援, ツール類の設計・開発を10年以上経験してきました。
     
     直近ではWebシステムやスマホアプリのバックエンド開発に関わらせていただき, フロントエンドは PHP(Laravel), バックエンドは Go での実装を担当しています。
@@ -57,13 +64,13 @@ export const skills = {
     es: ``,
 }
 
-export const otherSkills = {
+export const otherSkills: Message = {
     jp: `その他, 経験のある技術群についてはこちらをご覧ください。`,
     en: `For other techs in which we have experience, please check here.`,
     es: `Para otras tecnologías en las que tenemos experiencia, consulte aquí.`,
 }
 
-export const profile = {
+export const profile: Message = {
     jp: `工学系の大学を卒業するも就職活動に失敗し, 家電量販店のパソコン売り場でコンピュータの知識を磨きながら接客スキルを習得。当時はパッケージソフトウェアやコンピュータ書籍売り場を担当。日常の接客のみならず, 売れ残り品のたたき売りオークションなど 店内イベントでも活躍し, 店舗の売上に貢献する。
 
 
@@ -97,7 +104,7 @@ export const profile = {
     Actualmente soy ingeniero web freelance.`,
 }
 
-export const closing = {
+export const closing: Message = {
     jp: `最後までお付き合いいただき, ありがとうございました。
     忍者をクリックすると忍法でトップに戻ります。`,
     en: `Thank you for reading to the end.

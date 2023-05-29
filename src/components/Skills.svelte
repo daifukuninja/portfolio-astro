@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
     import { onMount } from "svelte";
-    import { lang } from "../scripts/lang";
+    import { langStore } from "../scripts/lang";
+    import type { langType } from "../scripts/lang";
     import SkillsMap from "./charts/skillsmaps/SkillsMap.svelte";
     import Timeline from "./charts/timeline/Timeline.svelte";
     import { skills, otherSkills } from "../scripts/messages";
@@ -10,19 +11,14 @@
         data_utilties,
     } from "./charts/skillsmaps/data";
 
-    let message;
-    let messageOther;
+    let message: string;
+    let messageOther: string;
 
-    lang.subscribe((value) => {
+    langStore.subscribe((value: langType) => {
         let m;
         let mo;
-        if (value == 'ja') {
-            m = skills.jp;
-            mo = otherSkills.jp;
-        } else {
-            m = skills.en;
-            mo = otherSkills.en;
-        }
+        m = skills[value]
+        mo = otherSkills[value]
         message = m.replace(/\n/g, "<br />");
         messageOther = mo.replace(/\n/g, "<br />");
     });
@@ -45,10 +41,11 @@
             let wb = wy + window.innerHeight - 150; // ブラウザの最下部位置を取得
             // チャートの位置を取得
             let chartFrontendPos =
-                wy + chartFrontend.getBoundingClientRect().top;
-            let chartBackendPos = wy + chartBackend.getBoundingClientRect().top;
+                // TODO: !を排除する
+                wy + chartFrontend!.getBoundingClientRect().top;
+            let chartBackendPos = wy + chartBackend!.getBoundingClientRect().top;
             let chartUtilitiesPos =
-                wy + chartUtilities.getBoundingClientRect().top;
+                wy + chartUtilities!.getBoundingClientRect().top;
 
             // チャートの位置がウィンドウの最下部位置を超えたら起動
             if (wb > chartFrontendPos && fireFrontend == false) {

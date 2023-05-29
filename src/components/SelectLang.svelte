@@ -1,29 +1,36 @@
 <script lang="ts">
-    import { lang } from "../scripts/lang";
-    let langKey: string;
+  import { langStore } from "../scripts/lang";
+  import type { langType } from "../scripts/lang";
 
-    lang.subscribe((value) => {
-        langKey = value;
-    });
+  let langKey: langType;
 
-    const switchLanguage = (l: string) => {
-        return () => {
-            lang.update((_) => {
-                return l;
-            });
-        };
+  langStore.subscribe(value => {
+    langKey = value;
+  });
+
+  const switchLanguage = (l: langType) => {
+    return () => {
+      langStore.update(_ => {
+        return l;
+      });
     };
+  };
 </script>
 
-{#if langKey == "ja"}
-    <a href={null} on:click={switchLanguage("en")}>English here.</a>
-{:else}
-    <a href={null} on:click={switchLanguage("ja")}>日本語はこちら</a>
+{#if langKey == "jp"}
+  <a href={null} on:click={switchLanguage("en")}>Click here for English.</a>
+  <a href={null} on:click={switchLanguage("es")}>Haga clic aquí para español.</a>
+{:else if langKey == "en"}
+  <a href={null} on:click={switchLanguage("es")}>Haga clic aquí para español.</a>
+  <a href={null} on:click={switchLanguage("jp")}>日本語はこちら</a>
+{:else if langKey == "es"}
+  <a href={null} on:click={switchLanguage("en")}>Click here for English.</a>
+  <a href={null} on:click={switchLanguage("jp")}>日本語はこちら</a>
 {/if}
 
 <style>
-    a {
-        cursor: pointer;
-        text-decoration: underline;
-    }
+  a {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 </style>

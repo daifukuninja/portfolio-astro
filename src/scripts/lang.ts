@@ -1,3 +1,5 @@
 import { writable } from "svelte/store";
 
-export const lang = writable('ja')
+export type langType = "jp" | "en" | "es"
+
+export const langStore = writable<langType>("jp")

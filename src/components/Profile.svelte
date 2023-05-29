@@ -1,16 +1,13 @@
 <script lang="ts">
-    import { lang } from "../scripts/lang";
+    import { langStore } from "../scripts/lang";
+    import type { langType } from "../scripts/lang";
     import { profile } from "../scripts/messages";
 
     let message = profile.jp.replace(/\n/g, "<br />");
 
-    lang.subscribe((value) => {
+    langStore.subscribe((value: langType) => {
         let m;
-        if (value == 'ja') {
-            m = profile.jp;
-        } else {
-            m = profile.en;
-        }
+        m = profile[value]
         message = m.replace(/\n/g, "<br />");
     });
 </script>

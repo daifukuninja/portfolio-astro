@@ -1,14 +1,11 @@
-<script>
-    import { aboutMe } from "../scripts/messages.ts";
-    import { lang } from "../scripts/lang.ts";
-    let message;
-    lang.subscribe((value) => {
-        let m;
-        if (value == 'ja') {
-            m = aboutMe.jp;
-        } else {
-            m = aboutMe.en;
-        }
+<script lang="ts">
+    import { aboutMe } from "../scripts/messages";
+    import { langStore } from "../scripts/lang";
+    import type { langType } from "../scripts/lang";
+    let message: string;
+    langStore.subscribe((value: langType) => {
+        let m: string;
+        m = aboutMe[value];
         message = m.replace(/\n/g, "<br />");
     });
     message = aboutMe.jp.replace(/\n/g, "<br />");

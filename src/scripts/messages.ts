@@ -1,11 +1,20 @@
-export const introduction = {
+// export type Lang = "jp" | "en" | "es"
+import type { langType } from "./lang"
+
+export type Message = {
+    [key in langType]: string
+}
+
+export const introduction: Message = {
     jp: `私の自己紹介, 製作物や執筆記事, 業務で身に付けたスキルをご案内させていただきます。
     なにか１つでもご参考になるものをお持ち帰りいただければ幸いです。`,
     en: `On this site, I will introduce myself, my productions, 
     articles I have written, and the skills I have acquired in my work.`,
+    es: `En este sitio, me presentaré, mis producciones, 
+    los artículos que he escrito y las habilidades que he adquirido en mi trabajo.`,
 }
 
-export const aboutMe = {
+export const aboutMe: Message = {
     jp: `MIHARA Keishi は日本のフリーランスWebエンジニア, バックエンドプログラマ, デスクトップアプリケーションエンジニア, 
     糖質制限者, 会社員, 団塊ジュニア, テックライター, スノーボーダー, 運転手, 
     元 Lotus Notes/Domino アプリケーションデータベースエンジニアでExcelマクロ書き。
@@ -29,23 +38,39 @@ export const aboutMe = {
     
     
     He is a member of Contribe Co.,Ltd.`,
+    es: `MIHARA Keishi es una ingeniera web independiente japonesa, programadora de back-end, 
+    ingeniera de aplicaciones de escritorio y dieter, empleada de la empresa, baby boomer, escritora técnica, 
+    practicante de snowboard, chofer, 
+    anteriormente ingeniera de base de datos de aplicaciones de Lotus Notes/Domino y programadora de macros de Excel.
+    
+    Padre de 3 hijos.
+    
+    
+    Nacido en la ciudad de Mito, prefectura de Ibaraki, criado en la ciudad de Mito, prefectura de Ibaraki y experimentado en la ciudad de Honjo, prefectura de Saitama.
+
+    Sus mejores materias en la escuela primaria fueron ciencias y artes y oficios (no es bueno en matemáticas).
+
+
+    Es miembro de Contribe Co., Ltd.`,
 }
 
-export const skills = {
+export const skills: Message = {
     jp: `Python, C#, VB系の言語を中心に、デスクトップアプリケーション, エンドユーザ業務効率化の支援, ツール類の設計・開発を10年以上経験してきました。
     
     直近ではWebシステムやスマホアプリのバックエンド開発に関わらせていただき, フロントエンドは PHP(Laravel), バックエンドは Go での実装を担当しています。
 
     エンドユーザと直接関わる機会が多かったので, 常にユーザ目線に立つことを忘れず, 画面や機能, API ならインターフェイスを形にするとき, どうすればクライアントが使いやすくなるかを常に考えるようにしています。`.replace(/\n/g, "<br />"),
     en: ``,
+    es: ``,
 }
 
-export const otherSkills = {
+export const otherSkills: Message = {
     jp: `その他, 経験のある技術群についてはこちらをご覧ください。`,
     en: `For other techs in which we have experience, please check here.`,
+    es: `Para otras tecnologías en las que tenemos experiencia, consulte aquí.`,
 }
 
-export const profile = {
+export const profile: Message = {
     jp: `工学系の大学を卒業するも就職活動に失敗し, 家電量販店のパソコン売り場でコンピュータの知識を磨きながら接客スキルを習得。当時はパッケージソフトウェアやコンピュータ書籍売り場を担当。日常の接客のみならず, 売れ残り品のたたき売りオークションなど 店内イベントでも活躍し, 店舗の売上に貢献する。
 
 
@@ -57,7 +82,7 @@ export const profile = {
 
     さらに5年の紆余曲折を経て, 現在はフリーランスとして独立。コーヒーをすすり, プロテインバーをかじり, 妻の用意する生野菜をモシャりながら VSCode で <code>go test</code> したり, <code>wrangler publish -e production</code> したり, <code>git reset --HARD origin/develop</code> したり, <code>docker</code> の <code>compose</code> を <code>up -d</code> したりする毎日。
     `,
-    en: `I live in Mito City, Ibaraki Pref. in Japan.
+    en: `I live in Mito City, Ibaraki Pref, in Japan.
     
     After graduating from an engineering college, then
     
@@ -67,11 +92,23 @@ export const profile = {
     
     
     I am currently a freelance web engineer.`,
+    es: `Vivo en Mito City, Ibaraki Pref, en Japón.
+    
+    Después de graduarse de una universidad de ingeniería, entonces
+    
+    empleado en una tienda de informática, SE interno en una empresa de fabricación, ingeniero de software (arquitecto de sistemas, programador, probador, soporte al usuario, etc.),
+    
+    He experimentado una variedad de trabajos.
+    
+    
+    Actualmente soy ingeniero web freelance.`,
 }
 
-export const closing = {
+export const closing: Message = {
     jp: `最後までお付き合いいただき, ありがとうございました。
     忍者をクリックすると忍法でトップに戻ります。`,
     en: `Thank you for reading to the end.
-    Click on the ninja to return to the top with the ninja method (aka. "NIN-PO").`,
+    Click "Ninja" to use Ninjutsu (aka "NIN-PO") to get back to the top.`,
+    es: `Gracias por leer hasta el final.
+    Al hacer clic en "Ninja", volverá a la parte superior usando ninjutsu (también conocido como "NIN-PO").`,
 }

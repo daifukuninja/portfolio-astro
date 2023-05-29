@@ -1,17 +1,14 @@
-<script>
-    import { lang } from "../scripts/lang";
+<script lang="ts">
+    import { langStore } from "../scripts/lang";
+    import type { langType } from "../scripts/lang";
     import { closing } from "../scripts/messages";
     import Ninja from "./Ninja.svelte";
 
     let message = closing.jp.replace(/\n/g, "<br />");
 
-    lang.subscribe((value) => {
+    langStore.subscribe((value: langType) => {
         let m;
-        if (value == 'ja') {
-            m = closing.jp;
-        } else {
-            m = closing.en;
-        }
+        m = closing[value]
         message = m.replace(/\n/g, "<br />");
     });
     

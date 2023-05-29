@@ -1,16 +1,13 @@
-<script>
+<script lang="ts">
     import { introduction } from "../scripts/messages";
-    import { lang } from "../scripts/lang";
+    import { langStore } from "../scripts/lang";
+    import type { langType } from "../scripts/lang";
 
     let message = introduction.jp.replace(/\n/g, "<br />");
 
-    lang.subscribe((value) => {
-        let m;
-        if (value == 'ja') {
-            m = introduction.jp;
-        } else {
-            m = introduction.en;
-        }
+    langStore.subscribe((value: langType) => {
+        let m: string;
+        m = introduction[value];
         message = m.replace(/\n/g, "<br />");
     });
 </script>

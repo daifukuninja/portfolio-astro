@@ -4,9 +4,7 @@
     import type { langType } from "../scripts/lang";
     let message: string;
     langStore.subscribe((value: langType) => {
-        let m: string;
-        m = aboutMe[value];
-        message = m.replace(/\n/g, "<br />");
+        message = aboutMe[value].replace(/\n/g, "<br />");
     });
     message = aboutMe.jp.replace(/\n/g, "<br />");
 </script>

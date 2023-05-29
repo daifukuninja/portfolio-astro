@@ -6,9 +6,7 @@
     let message = profile.jp.replace(/\n/g, "<br />");
 
     langStore.subscribe((l: langType) => {
-        let m;
-        m = profile[l];
-        message = m.replace(/\n/g, "<br />");
+        message = profile[l].replace(/\n/g, "<br />");
     });
 </script>
 

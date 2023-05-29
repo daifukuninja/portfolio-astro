@@ -11,12 +11,8 @@
     let messageOther: string;
 
     langStore.subscribe((l: langType) => {
-        let m;
-        let mo;
-        m = skills[l];
-        mo = otherSkills[l];
-        message = m.replace(/\n/g, "<br />");
-        messageOther = mo.replace(/\n/g, "<br />");
+        message = skills[l].replace(/\n/g, "<br />");
+        messageOther = otherSkills[l].replace(/\n/g, "<br />");
     });
     message = skills.jp.replace(/\n/g, "<br />");
     messageOther = otherSkills.jp.replace(/\n/g, "<br />");

@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { langStore } from "../scripts/lang";
-    import type { langType } from "../scripts/lang";
     import { getZennFeeds } from "../scripts/getZennFeeds";
     import type { Root } from "../scripts/getZennFeeds";
     import ZennCaption from "./ZennCaption.svelte";

@@ -7,9 +7,7 @@
     let message = closing.jp.replace(/\n/g, "<br />");
 
     langStore.subscribe((l: langType) => {
-        let m;
-        m = closing[l];
-        message = m.replace(/\n/g, "<br />");
+        message = closing[l].replace(/\n/g, "<br />");
     });
 
     let ninnin = false;

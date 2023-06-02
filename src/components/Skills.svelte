@@ -5,22 +5,14 @@
     import SkillsMap from "./charts/skillsmaps/SkillsMap.svelte";
     import Timeline from "./charts/timeline/Timeline.svelte";
     import { skills, otherSkills } from "../scripts/messages";
-    import {
-        data_frontend,
-        data_backend,
-        data_utilties,
-    } from "./charts/skillsmaps/data";
+    import { data_frontend, data_backend, data_utilties } from "./charts/skillsmaps/data";
 
     let message: string;
     let messageOther: string;
 
-    langStore.subscribe((value: langType) => {
-        let m;
-        let mo;
-        m = skills[value]
-        mo = otherSkills[value]
-        message = m.replace(/\n/g, "<br />");
-        messageOther = mo.replace(/\n/g, "<br />");
+    langStore.subscribe((l: langType) => {
+        message = skills[l].replace(/\n/g, "<br />");
+        messageOther = otherSkills[l].replace(/\n/g, "<br />");
     });
     message = skills.jp.replace(/\n/g, "<br />");
     messageOther = otherSkills.jp.replace(/\n/g, "<br />");
@@ -44,8 +36,7 @@
                 // TODO: !を排除する
                 wy + chartFrontend!.getBoundingClientRect().top;
             let chartBackendPos = wy + chartBackend!.getBoundingClientRect().top;
-            let chartUtilitiesPos =
-                wy + chartUtilities!.getBoundingClientRect().top;
+            let chartUtilitiesPos = wy + chartUtilities!.getBoundingClientRect().top;
 
             // チャートの位置がウィンドウの最下部位置を超えたら起動
             if (wb > chartFrontendPos && fireFrontend == false) {
@@ -86,10 +77,7 @@
         </div>
         <div id="cu" class="skillsmap">
             {#if fireUtilities}
-                <SkillsMap
-                    data={data_utilties}
-                    title={"Utilities/Infrastructure"}
-                />
+                <SkillsMap data={data_utilties} title={"Utilities/Infrastructure"} />
             {:else}
                 <div class="blankbox" />
             {/if}

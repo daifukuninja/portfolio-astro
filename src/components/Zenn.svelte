@@ -1,21 +1,10 @@
 <script lang="ts">
-    import { langStore } from "../scripts/lang";
-    import type { langType } from "../scripts/lang";
     import { getZennFeeds } from "../scripts/getZennFeeds";
     import type { Root } from "../scripts/getZennFeeds";
     import ZennCaption from "./ZennCaption.svelte";
 
     let promise = getZennFeeds<Root>("daifukuninja");
     const articleCount = 5;
-
-    let isJa = true;
-    langStore.subscribe((value: langType) => {
-        if (value == ("jp" as langType)) {
-            isJa = true;
-        } else {
-            isJa = false;
-        }
-    });
 </script>
 
 <div id="zenn-container">

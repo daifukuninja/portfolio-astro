@@ -5,8 +5,8 @@
     const articleCount = 5;
 
     let lang: langType = "jp";
-    langStore.subscribe((value: langType) => {
-        lang = value;
+    langStore.subscribe((l: langType) => {
+        lang = l;
     });
 </script>
 
